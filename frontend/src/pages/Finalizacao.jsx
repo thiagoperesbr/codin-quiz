@@ -17,12 +17,12 @@ const variants = {
   },
 };
 
-const Finalizacao = ({ nome, acertos, total, onTimeout }) => {
-  const [contador, setContador] = useState(5);
+const Finalizacao = ({ acertos, total, onRestart }) => {
+  const [contador, setContador] = useState(7);
 
   useEffect(() => {
     if (contador === 0) {
-      onTimeout();
+      onRestart();
       return;
     }
 
@@ -31,11 +31,11 @@ const Finalizacao = ({ nome, acertos, total, onTimeout }) => {
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, [contador, onTimeout]);
+  }, [contador, onRestart]);
 
   return (
     <motion.div
-      className="w-full h-full flex flex-col items-center justify-between text-black text-center px-6 py-10 bg-[#f5b116]"
+      className="w-full h-full flex flex-col items-center justify-between text-[#3c3c3c] text-center px-6 py-10 bg-[#f5b116]"
       variants={variants}
       initial="initial"
       animate="animate"
@@ -43,18 +43,17 @@ const Finalizacao = ({ nome, acertos, total, onTimeout }) => {
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
       <div className="flex flex-col items-center justify-center flex-1">
-        <h1 className="text-4xl font-bold mb-4 uppercase">Parabéns</h1>
-        <h2 className="text-2xl font-bold uppercase mb-6">{nome}</h2>
-        <p className="text-xl font-semibold">
+        <h1 className="text-8xl font-bold mb-[120px] uppercase">Parabéns</h1>
+        <p className="text-6xl font-bold uppercase">
           Você acertou {acertos} de {total} perguntas
         </p>
 
-        <p className="mt-10 text-lg font-semibold max-w-[90%]">
-          Aproveite nosso stand para conhecer um pouco mais sobre a CODIN - RIO
+        <p className="mt-[120px] text-6xl font-bold uppercase max-w-[60%]">
+          Aproveite nosso stand para conhecer um pouco mais sobre a CODIN RJ
         </p>
       </div>
 
-      <div className="mt-10 text-sm font-bold">
+      <div className="mb-10 text-3xl font-bold uppercase">
         Retornando em {contador} segundo{contador > 1 ? "s" : ""}...
       </div>
     </motion.div>
@@ -62,10 +61,9 @@ const Finalizacao = ({ nome, acertos, total, onTimeout }) => {
 };
 
 Finalizacao.propTypes = {
-  nome: PropTypes.string.isRequired,
   acertos: PropTypes.number.isRequired,
   total: PropTypes.number.isRequired,
-  onTimeout: PropTypes.func.isRequired,
+  onRestart: PropTypes.func.isRequired,
 };
 
 export default Finalizacao;

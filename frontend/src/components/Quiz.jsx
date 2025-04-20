@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Questions from "../pages/Questions";
 
 import api from "../services/api";
+import { AnimatePresence } from "framer-motion";
 
 const Quiz = ({ onFinish }) => {
   const [perguntas, setPerguntas] = useState([]);
@@ -11,6 +12,7 @@ const Quiz = ({ onFinish }) => {
   const [respostaCorreta, setRespostaCorreta] = useState(null);
   const [explicacao, setExplicacao] = useState("");
   const [bloqueado, setBloqueado] = useState(false);
+  const [acertos, setAcertos] = useState(0);
 
   useEffect(() => {
     const buscarPerguntas = async () => {
@@ -23,13 +25,17 @@ const Quiz = ({ onFinish }) => {
 
   const perguntaAtual = perguntas[indexAtual];
 
-  console.log("Perguntas:", perguntas);
-
   const handleResposta = async (resposta) => {
     if (bloqueado || !perguntaAtual) return;
 
     setBloqueado(true);
     setRespostaSelecionada(resposta);
+
+    let acertou = false;
+
+    if (resposta === perguntaAtual.answer) {
+      acertou = true;
+    }
 
     try {
       const response = await api.get(
@@ -46,30 +52,42 @@ const Quiz = ({ onFinish }) => {
           setRespostaCorreta(null);
           setExplicacao("");
           setBloqueado(false);
+
+          // Atualiza acertos se acertou a questão
+          if (acertou) {
+            setAcertos((prev) => prev + 1);
+          }
         } else {
-          onFinish();
+          if (acertou) {
+            onFinish({ total: perguntas.length, acertos: acertos + 1 });
+          } else {
+            onFinish({ total: perguntas.length, acertos });
+          }
         }
-      }, 5000);
+      }, 7000);
     } catch (err) {
       console.error("Erro ao verificar resposta:", err);
     }
   };
 
-  if (!perguntaAtual || !perguntaAtual.texto || !perguntaAtual.opcoes) {
+  if (!perguntaAtual || !perguntaAtual.question || !perguntaAtual.options) {
     return <div>Carregando...</div>;
   }
 
   return (
-    <Questions
-      numero={indexAtual + 1}
-      total={perguntas.length}
-      texto={perguntaAtual.question}
-      opcoes={perguntaAtual.options}
-      onResposta={handleResposta}
-      respostaSelecionada={respostaSelecionada}
-      respostaCorreta={respostaCorreta}
-      explicacao={explicacao}
-    />
+    <AnimatePresence mode="sync" initial={false}>
+      <Questions
+        key={indexAtual}
+        numero={indexAtual + 1}
+        total={perguntas.length}
+        texto={perguntaAtual.question}
+        opcoes={perguntaAtual.options}
+        onResposta={handleResposta}
+        respostaSelecionada={respostaSelecionada}
+        respostaCorreta={respostaCorreta}
+        explicacao={explicacao}
+      />
+    </AnimatePresence>
   );
 };
 

@@ -38,7 +38,7 @@ const QRCodeScreen = ({ onTimeout }) => {
 
   return (
     <motion.div
-      className="flex flex-col h-full w-full justify-center items-center bg-white"
+      className="flex flex-col h-full w-full justify-center items-center bg-[#f5b116]"
       variants={variants}
       initial="initial"
       animate="animate"
@@ -47,30 +47,28 @@ const QRCodeScreen = ({ onTimeout }) => {
     >
       {/* Mensagem + QR Code */}
       <div className="flex flex-col items-center gap-20">
-        <h1 className="text-4xl text-center font-semibold text-blue-900">
+        <h1 className="text-5xl text-center font-bold uppercase text-[#3c3c3c] drop-shadow-2lg">
           Escaneie o QR Code abaixo
-          <br />
           <br />
           junte-se a CODIN RJ no Instagram!
         </h1>
 
         <QRCodeSVG
           value="https://instagram.com/codin.rj"
-          size={350}
+          size={600}
           bgColor="#ffffff"
           fgColor="#000000"
           level="H"
         />
 
         {countdown > 0 ? (
-          <h2 className="text-4xl text-center font-semibold text-blue-900">
+          <h2 className="text-5xl text-center font-bold uppercase text-[#3c3c3c] drop-shadow-2lg">
             O quiz irá começar em
-            <br />
             <br />
             {countdown} segundo{countdown !== 1 ? "s" : ""}
           </h2>
         ) : (
-          <h2 className="text-4xl text-center font-semibold text-blue-900">
+          <h2 className="text-5xl text-center font-bold uppercase text-[#3c3c3c] drop-shadow-2lg">
             O quiz irá começar agora!
           </h2>
         )}

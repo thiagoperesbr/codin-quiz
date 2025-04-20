@@ -7,6 +7,12 @@ import Finalizacao from "./pages/Finalizacao";
 
 function App() {
   const [page, setPage] = useState("bemvindo");
+  const [resultado, setResultado] = useState({ total: 0, acertos: 0 });
+
+  const handleFinish = ({ total, acertos }) => {
+    setResultado({ total, acertos });
+    setPage("finalizacao");
+  };
 
   const renderPage = () => {
     switch (page) {
@@ -15,9 +21,15 @@ function App() {
       case "qrcode":
         return <QRCodeScreen onTimeout={() => setPage("quiz")} />;
       case "quiz":
-        return <Quiz onFinish={() => setPage("finalizacao")} />;
+        return <Quiz onFinish={handleFinish} />;
       case "finalizacao":
-        return <Finalizacao onRestart={() => setPage("bemvindo")} />;
+        return (
+          <Finalizacao
+            total={resultado.total}
+            acertos={resultado.acertos}
+            onRestart={() => setPage("bemvindo")}
+          />
+        );
       default:
         return <Bemvindo onStart={() => setPage("qrcode")} />;
     }

@@ -3,7 +3,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 
-const images = ["/rio1.jpg", "/rio2.jpg", "/rio3.jpg", "/rio4.jpg"];
+const images = [
+  "/rio1.jpg",
+  "/rio2.jpeg",
+  "/rio3.jpg",
+  "/rio4.jpg",
+  "/rio5.jpg",
+  "/rio6.jpg",
+];
 
 const variants = {
   initial: {
@@ -45,8 +52,8 @@ const Bemvindo = ({ onStart }) => {
         />
       </AnimatePresence>
 
-      <div className="z-10 max-w-[80%] text-white mt-16 text-xl text-center drop-shadow-lg">
-        <p className="font-bold uppercase">
+      <div className="z-10 max-w-[80%] text-white mt-16 text-[40px] text-center">
+        <p className="font-bold uppercase drop-shadow-2xl">
           O estado que tem "Rio" no nome oferece um mar de oportunidades nas
           áreas de turismo, serviços, logística, TI, indústria metalmecânica,
           automotivo, confecção, construção naval, petróleo e gás.
@@ -55,7 +62,7 @@ const Bemvindo = ({ onStart }) => {
 
       <button
         onClick={onStart}
-        className="z-10 bg-[#e9e9e9] px-40 py-6 mb-10 text-black font-bold text-lg rounded-md shadow-md hover:bg-white transition-all duration-300 ease-in-out"
+        className="z-10 bg-[#f5b116] px-[180px] py-14 mb-10 text-black font-bold text-4xl rounded-md shadow-md hover:bg-white transition-all duration-300 ease-in-out"
       >
         TOQUE AQUI PARA COMEÇAR
       </button>

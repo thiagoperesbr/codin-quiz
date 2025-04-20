@@ -35,11 +35,11 @@ const Questions = ({
     }
 
     if (opcao === respostaSelecionada && opcao !== respostaCorreta) {
-      return "bg-red-600";
+      return "bg-red-700";
     }
 
     if (opcao === respostaCorreta) {
-      return "bg-green-600";
+      return "bg-green-700";
     }
 
     return "bg-[#3c3c3c] opacity-50";
@@ -55,21 +55,21 @@ const Questions = ({
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
       {/* Título da Pergunta */}
-      <div className="text-center text-black font-bold">
-        <p className="text-xl uppercase">
+      <div className="text-center font-bold text-[#3c3c3c] drop-shadow-lg space-y-[100px] max-w-[70%]">
+        <div className="text-7xl uppercase">
           Pergunta {numero} de {total}
-        </p>
-        <h1 className="text-2xl mt-4 uppercase">{texto}</h1>
+        </div>
+        <div className="text-5xl uppercase">{texto}</div>
       </div>
 
       {/* Opções */}
-      <div className="mt-10 w-full flex flex-col gap-4 max-w-[500px]">
+      <div className="mt-40 w-full flex flex-col gap-12 max-w-[1000px]">
         {opcoes.map((opcao, index) => (
           <button
             key={index}
             onClick={() => onResposta(opcao)}
             className={clsx(
-              "text-white text-lg font-bold py-4 rounded-lg transition",
+              "text-white text-4xl font-bold py-16 rounded-lg transition",
               getButtonStyle(opcao)
             )}
             disabled={!!respostaSelecionada}
@@ -84,10 +84,12 @@ const Questions = ({
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="mt-8 text-center bg-white text-black p-4 rounded-xl max-w-[500px] shadow-md"
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          className="mt-[120px] text-center text-[#3c3c3c] max-w-[70%]"
         >
-          <p className="font-semibold">Explicação:</p>
-          <p>{explicacao}</p>
+          <p className="font-semibold italic text-4xl uppercase">
+            {`"${explicacao}"`}
+          </p>
         </motion.div>
       )}
     </motion.div>

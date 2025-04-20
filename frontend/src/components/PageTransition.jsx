@@ -18,7 +18,7 @@ const variants = {
 
 const PageTransition = ({ children }) => {
   return (
-    <AnimatePresence mode="sync" initial={false}>
+    <AnimatePresence mode="wait" initial={false}>
       <motion.div
         key={children.key || Math.random()}
         variants={variants}
