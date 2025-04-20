@@ -43,17 +43,17 @@ const Finalizacao = ({ acertos, total, onRestart }) => {
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
       <div className="flex flex-col items-center justify-center flex-1">
-        <h1 className="text-8xl font-bold mb-[120px] uppercase">Parabéns</h1>
-        <p className="text-6xl font-bold uppercase">
+        <h1 className="text-5xl font-bold mb-[120px] uppercase">Parabéns</h1>
+        <p className="text-4xl font-bold uppercase">
           Você acertou {acertos} de {total} perguntas
         </p>
 
-        <p className="mt-[120px] text-6xl font-bold uppercase max-w-[60%]">
+        <p className="mt-[60px] text-4xl font-bold uppercase max-w-[60%]">
           Aproveite nosso stand para conhecer um pouco mais sobre a CODIN RJ
         </p>
       </div>
 
-      <div className="mb-10 text-3xl font-bold uppercase">
+      <div className="mb-10 text-2xl font-bold uppercase">
         Retornando em {contador} segundo{contador > 1 ? "s" : ""}...
       </div>
     </motion.div>

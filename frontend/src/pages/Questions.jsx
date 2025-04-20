@@ -55,21 +55,21 @@ const Questions = ({
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
       {/* Título da Pergunta */}
-      <div className="text-center font-bold text-[#3c3c3c] drop-shadow-lg space-y-[100px] max-w-[70%]">
-        <div className="text-7xl uppercase">
+      <div className="text-center font-bold text-[#3c3c3c] drop-shadow-lg space-y-[100px] max-w-[80%]">
+        <div className="text-5xl uppercase">
           Pergunta {numero} de {total}
         </div>
-        <div className="text-5xl uppercase">{texto}</div>
+        <div className="text-3xl uppercase">{texto}</div>
       </div>
 
       {/* Opções */}
-      <div className="mt-40 w-full flex flex-col gap-12 max-w-[1000px]">
+      <div className="mt-20 w-full flex flex-col gap-8 max-w-[80%]">
         {opcoes.map((opcao, index) => (
           <button
             key={index}
             onClick={() => onResposta(opcao)}
             className={clsx(
-              "text-white text-4xl font-bold py-16 rounded-lg transition",
+              "text-white text-2xl font-bold py-12 rounded-lg transition",
               getButtonStyle(opcao)
             )}
             disabled={!!respostaSelecionada}
@@ -85,9 +85,9 @@ const Questions = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="mt-[120px] text-center text-[#3c3c3c] max-w-[70%]"
+          className="mt-[60px] text-center text-[#3c3c3c] max-w-[70%]"
         >
-          <p className="font-semibold italic text-4xl uppercase">
+          <p className="font-semibold italic text-2xl uppercase">
             {`"${explicacao}"`}
           </p>
         </motion.div>
