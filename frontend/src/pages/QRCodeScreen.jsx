@@ -55,7 +55,7 @@ const QRCodeScreen = ({ onTimeout }) => {
 
         <QRCodeSVG
           value="https://instagram.com/codin.rj"
-          size={400}
+          size={350}
           bgColor="#ffffff"
           fgColor="#000000"
           level="H"

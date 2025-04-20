@@ -62,7 +62,7 @@ const Bemvindo = ({ onStart }) => {
 
       <button
         onClick={onStart}
-        className="z-10 bg-[#f5b116] px-[70px] py-[40px] mb-10 text-black font-bold text-2xl rounded-md shadow-md hover:bg-white transition-all duration-300 ease-in-out"
+        className="z-10 bg-[#f5b116] px-[70px] py-[40px] mb-10 text-black font-bold text-xl rounded-md shadow-md hover:bg-white transition-all duration-300 ease-in-out"
       >
         TOQUE AQUI PARA COMEÇAR
       </button>

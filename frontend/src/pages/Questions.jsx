@@ -56,20 +56,20 @@ const Questions = ({
     >
       {/* Título da Pergunta */}
       <div className="text-center font-bold text-[#3c3c3c] drop-shadow-lg space-y-[100px] max-w-[80%]">
-        <div className="text-5xl uppercase">
+        <div className="text-4xl uppercase">
           Pergunta {numero} de {total}
         </div>
-        <div className="text-3xl uppercase">{texto}</div>
+        <div className="text-2xl uppercase">{texto}</div>
       </div>
 
       {/* Opções */}
-      <div className="mt-20 w-full flex flex-col gap-8 max-w-[80%]">
+      <div className="mt-20 w-full flex flex-col gap-8 max-w-[75%]">
         {opcoes.map((opcao, index) => (
           <button
             key={index}
             onClick={() => onResposta(opcao)}
             className={clsx(
-              "text-white text-2xl font-bold py-12 rounded-lg transition",
+              "text-white text-2xl font-bold py-10 rounded-lg transition",
               getButtonStyle(opcao)
             )}
             disabled={!!respostaSelecionada}
