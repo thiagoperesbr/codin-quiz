@@ -9,6 +9,8 @@ import { errorHandler } from "./middlewares/errorMiddleware.js";
 
 dotenv.config();
 
+PORT = process.env.PORT || 8800;
+
 const app = express();
 
 app.use(express.json());
@@ -20,10 +22,10 @@ app.use("/api/quiz", quizRouter);
 app.use(errorHandler);
 
 mongoose
-  .connect("mongodb+srv://codin:Deinf00@asstin.huqsjwp.mongodb.net/quiz")
+  .connect(process.env.MONGODB_URL)
   .then(() => {
-    app.listen(8800, () => {
-      console.log(`Server running on port 8800 - MongoDB connected.`);
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT} - MongoDB connected.`);
     });
   })
   .catch((err) => console.log(err));
