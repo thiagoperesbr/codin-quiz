@@ -52,7 +52,7 @@ const Bemvindo = ({ onStart }) => {
         />
       </AnimatePresence>
 
-      <div className="z-10 max-w-[80%] text-white mt-16 text-[22px] text-center">
+      <div className="z-10 max-w-[80%] text-[#f5b116] mt-16 text-[18px] text-center">
         <p className="font-bold uppercase drop-shadow-2xl">
           O estado que tem "Rio" no nome oferece um mar de oportunidades nas
           áreas de turismo, serviços, logística, TI, indústria metalmecânica,
@@ -62,7 +62,7 @@ const Bemvindo = ({ onStart }) => {
 
       <button
         onClick={onStart}
-        className="z-10 bg-[#f5b116] px-[70px] py-[40px] mb-10 text-black font-bold text-xl rounded-md shadow-md hover:bg-white transition-all duration-300 ease-in-out"
+        className="z-10 bg-[#f5b116] px-[65px] py-[35px] mb-10 text-black font-bold text-xl rounded-md shadow-md hover:bg-white transition-all duration-300 ease-in-out"
       >
         TOQUE AQUI PARA COMEÇAR
       </button>

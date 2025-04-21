@@ -47,7 +47,7 @@ const QRCodeScreen = ({ onTimeout }) => {
     >
       {/* Mensagem + QR Code */}
       <div className="flex flex-col items-center gap-20">
-        <h1 className="text-3xl text-center font-bold uppercase text-[#3c3c3c] drop-shadow-2lg">
+        <h1 className="text-2xl text-center font-bold uppercase text-[#3c3c3c] drop-shadow-2lg">
           Escaneie o QR Code abaixo
           <br />
           junte-se a CODIN RJ no Instagram!
@@ -55,20 +55,20 @@ const QRCodeScreen = ({ onTimeout }) => {
 
         <QRCodeSVG
           value="https://instagram.com/codin.rj"
-          size={350}
+          size={300}
           bgColor="#ffffff"
           fgColor="#000000"
           level="H"
         />
 
         {countdown > 0 ? (
-          <h2 className="text-3xl text-center font-bold uppercase text-[#3c3c3c] drop-shadow-2lg">
+          <h2 className="text-2xl text-center font-bold uppercase text-[#3c3c3c] drop-shadow-2lg">
             O quiz irá começar em
             <br />
             {countdown} segundo{countdown !== 1 ? "s" : ""}
           </h2>
         ) : (
-          <h2 className="text-3xl text-center font-bold uppercase text-[#3c3c3c] drop-shadow-2lg">
+          <h2 className="text-2xl text-center font-bold uppercase text-[#3c3c3c] drop-shadow-2lg">
             O quiz irá começar agora!
           </h2>
         )}

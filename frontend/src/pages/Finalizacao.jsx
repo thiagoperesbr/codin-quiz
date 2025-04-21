@@ -53,7 +53,7 @@ const Finalizacao = ({ acertos, total, onRestart }) => {
         </p>
       </div>
 
-      <div className="mb-10 text-2xl font-bold uppercase">
+      <div className="mb-6 text-xl font-bold uppercase">
         Retornando em {contador} segundo{contador > 1 ? "s" : ""}...
       </div>
     </motion.div>
