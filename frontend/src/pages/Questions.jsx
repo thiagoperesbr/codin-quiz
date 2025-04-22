@@ -55,7 +55,7 @@ const Questions = ({
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
       {/* Título da Pergunta */}
-      <div className="text-center font-bold text-[#3c3c3c] drop-shadow-lg space-y-[50px] max-w-[70%]">
+      <div className="text-center font-bold text-[#3c3c3c] drop-shadow-lg space-y-[40px] max-w-[80%]">
         <div className="text-4xl uppercase">
           Pergunta {numero} de {total}
         </div>
@@ -63,13 +63,13 @@ const Questions = ({
       </div>
 
       {/* Opções */}
-      <div className="mt-16 w-full flex flex-col gap-6 max-w-[70%]">
+      <div className="mt-10 w-full flex flex-col gap-4 max-w-[70%]">
         {opcoes.map((opcao, index) => (
           <button
             key={index}
             onClick={() => onResposta(opcao)}
             className={clsx(
-              "text-white text-2xl font-bold py-8 rounded-lg transition",
+              "text-white text-2xl font-bold py-6 rounded-lg transition",
               getButtonStyle(opcao)
             )}
             disabled={!!respostaSelecionada}
@@ -85,7 +85,7 @@ const Questions = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="mt-[40px] text-center text-[#3c3c3c] max-w-[70%]"
+          className="mt-[40px] text-center text-[#3c3c3c] max-w-[80%]"
         >
           <p className="font-semibold italic text-2xl uppercase">
             {`"${explicacao}"`}
