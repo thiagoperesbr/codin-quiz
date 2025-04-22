@@ -13,6 +13,7 @@ const Quiz = ({ onFinish }) => {
   const [explicacao, setExplicacao] = useState("");
   const [bloqueado, setBloqueado] = useState(false);
   const [acertos, setAcertos] = useState(0);
+  const [tempoRestante, setTempoRestante] = useState(90);
 
   useEffect(() => {
     const buscarPerguntas = async () => {
@@ -22,6 +23,23 @@ const Quiz = ({ onFinish }) => {
 
     buscarPerguntas();
   }, []);
+
+  useEffect(() => {
+    if (perguntas.length === 0) return;
+
+    const timer = setInterval(() => {
+      setTempoRestante((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          onFinish({ total: perguntas.length, acertos });
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [perguntas]);
 
   const perguntaAtual = perguntas[indexAtual];
 

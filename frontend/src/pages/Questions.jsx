@@ -85,7 +85,7 @@ const Questions = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="mt-[40px] text-center text-[#3c3c3c] max-w-[80%]"
+          className="mt-[40px] text-center text-[#3c3c3c] max-w-[85%]"
         >
           <p className="font-semibold italic text-2xl uppercase">
             {`"${explicacao}"`}
